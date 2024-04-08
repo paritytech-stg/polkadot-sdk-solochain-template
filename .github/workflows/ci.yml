@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    container:
+      image: docker.io/paritytech/ci-unified:bullseye-1.75.0-2024-01-22-v20240109
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build node
+        run:
+          # Commented out for now because it's very long.
+          # cargo build
+          cargo tree --depth 1
+        working-directory: node
