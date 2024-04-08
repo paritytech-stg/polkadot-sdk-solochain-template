@@ -6,10 +6,6 @@ license = "MIT-0"
 edition = "2021"
 publish = false
 
-
-
-# test
-
 [lints]
 
 [package.metadata.docs.rs]
