@@ -6,6 +6,7 @@ repository = "https://github.com/paritytech/polkadot-sdk-solochain-template.git"
 edition = "2021"
 
 [workspace]
+# add  to the build command to build all members
 members = [
     "node",
     "pallets/template",
@@ -16,59 +17,39 @@ resolver = "2"
 [workspace.dependencies]
 solochain-template-runtime = { path = "./runtime", default-features = false }
 pallet-template = { path = "./pallets/template", default-features = false }
-clap = { version = "4.5.3" }
-frame-benchmarking-cli = { version = "42.0.0", default-features = false }
-frame-system = { version = "37.1.0", default-features = false }
+clap = { version = "4.5.13" }
+frame-benchmarking-cli = { path = "substrate/utils/frame/benchmarking-cli", default-features = false }
+frame-metadata-hash-extension = { path = "substrate/frame/metadata-hash-extension", default-features = false }
+frame-system = { path = "substrate/frame/system", default-features = false }
 futures = { version = "0.3.30" }
-jsonrpsee = { version = "0.23.2" }
-pallet-transaction-payment = { version = "37.0.0", default-features = false }
-pallet-transaction-payment-rpc = { version = "40.0.0", default-features = false }
-sc-basic-authorship = { version = "0.44.0", default-features = false }
-sc-cli = { version = "0.46.0", default-features = false }
-sc-client-api = { version = "37.0.0", default-features = false }
-sc-consensus = { version = "0.43.0", default-features = false }
-sc-consensus-aura = { version = "0.44.0", default-features = false }
-sc-consensus-grandpa = { version = "0.29.1", default-features = false }
-sc-executor = { version = "0.40.0", default-features = false }
-sc-network = { version = "0.44.0", default-features = false }
-sc-offchain = { version = "39.0.0", default-features = false }
-sc-rpc-api = { version = "0.43.0", default-features = false }
-sc-service = { version = "0.45.0", default-features = false }
-sc-telemetry = { version = "24.0.0", default-features = false }
-sc-transaction-pool = { version = "37.0.0", default-features = false }
-sc-transaction-pool-api = { version = "37.0.0", default-features = false }
-serde_json = { version = "1.0.121", default-features = false }
-sp-api = { version = "34.0.0", default-features = false }
-sp-block-builder = { version = "34.0.0", default-features = false }
-sp-blockchain = { version = "37.0.1", default-features = false }
-sp-consensus-aura = { version = "0.40.0", default-features = false }
-sp-consensus-grandpa = { version = "21.0.0", default-features = false }
-sp-core = { version = "34.0.0", default-features = false }
-sp-inherents = { version = "34.0.0", default-features = false }
-sp-io = { version = "38.0.0", default-features = false }
-sp-keyring = { version = "39.0.0", default-features = false }
-sp-runtime = { version = "39.0.0", default-features = false }
-sp-timestamp = { version = "34.0.0", default-features = false }
-substrate-frame-rpc-system = { version = "38.0.0", default-features = false }
-substrate-build-script-utils = { version = "11.0.0", default-features = false }
-codec = { version = "3.6.12", default-features = false, package = "parity-scale-codec" }
-frame-benchmarking = { version = "37.0.0", default-features = false }
-frame-executive = { version = "37.0.0", default-features = false }
-frame-support = { version = "37.0.0", default-features = false }
-frame-system-benchmarking = { version = "37.0.0", default-features = false }
-frame-system-rpc-runtime-api = { version = "34.0.0", default-features = false }
-frame-try-runtime = { version = "0.43.0", default-features = false }
-pallet-aura = { version = "36.0.0", default-features = false }
-pallet-balances = { version = "38.0.0", default-features = false }
-pallet-grandpa = { version = "37.0.0", default-features = false }
-pallet-sudo = { version = "37.0.0", default-features = false }
-pallet-timestamp = { version = "36.0.1", default-features = false }
-pallet-transaction-payment-rpc-runtime-api = { version = "37.0.0", default-features = false }
-scale-info = { version = "2.11.1", default-features = false }
-sp-genesis-builder = { version = "0.15.0", default-features = false }
-sp-offchain = { version = "34.0.0", default-features = false }
-sp-session = { version = "35.0.0", default-features = false }
-sp-storage = { version = "21.0.0", default-features = false }
-sp-transaction-pool = { version = "34.0.0", default-features = false }
-sp-version = { version = "37.0.0", default-features = false }
-substrate-wasm-builder = { version = "24.0.0", default-features = false }
+jsonrpsee = { version = "0.24.3" }
+pallet-transaction-payment = { path = "substrate/frame/transaction-payment", default-features = false }
+pallet-transaction-payment-rpc = { path = "substrate/frame/transaction-payment/rpc", default-features = false }
+sc-basic-authorship = { path = "substrate/client/basic-authorship", default-features = false }
+sc-cli = { path = "substrate/client/cli", default-features = false }
+sc-client-api = { path = "substrate/client/api", default-features = false }
+sc-consensus = { path = "substrate/client/consensus/common", default-features = false }
+sc-consensus-aura = { path = "substrate/client/consensus/aura", default-features = false }
+sc-consensus-grandpa = { path = "substrate/client/consensus/grandpa", default-features = false }
+sc-executor = { path = "substrate/client/executor", default-features = false }
+sc-network = { path = "substrate/client/network", default-features = false }
+sc-offchain = { path = "substrate/client/offchain", default-features = false }
+sc-service = { path = "substrate/client/service", default-features = false }
+sc-telemetry = { path = "substrate/client/telemetry", default-features = false }
+sc-transaction-pool = { path = "substrate/client/transaction-pool", default-features = false }
+sc-transaction-pool-api = { path = "substrate/client/transaction-pool/api", default-features = false }
+serde_json = { version = "1.0.132", default-features = false }
+sp-api = { path = "substrate/primitives/api", default-features = false }
+sp-block-builder = { path = "substrate/primitives/block-builder", default-features = false }
+sp-blockchain = { path = "substrate/primitives/blockchain", default-features = false }
+sp-consensus-aura = { path = "substrate/primitives/consensus/aura", default-features = false }
+sp-consensus-grandpa = { path = "substrate/primitives/consensus/grandpa", default-features = false }
+sp-core = { path = "substrate/primitives/core", default-features = false }
+sp-genesis-builder = { path = "substrate/primitives/genesis-builder", default-features = false }
+sp-inherents = { path = "substrate/primitives/inherents", default-features = false }
+sp-io = { path = "substrate/primitives/io", default-features = false }
+sp-keyring = { path = "substrate/primitives/keyring", default-features = false }
+sp-runtime = { path = "substrate/primitives/runtime", default-features = false }
+sp-timestamp = { path = "substrate/primitives/timestamp", default-features = false }
+substrate-frame-rpc-system = { path = "substrate/utils/frame/rpc/system", default-features = false }
+substrate-build-script-utils = { path = "substrate/utils/build-script-utils", default-features = false }
